@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = [
+        'page_title' => 'About classe 92',
+        'description' => 'lorem ipsum dolor',
+        'students' => [
+            'Mario Rossi',
+            'Luigi Verdi',
+            'Silvia Neri',
+            'Antonio Bianchi',
+        ],
+        'teachers' => [],
+    ];
+    return view('home', $data);
 });
+Route::get('/contacts', function () {
+    $page_title = 'Contatti';
+    $boolean_class = 'Classe 92';
+    return view('contact', compact('page_title', 'boolean_class'));
+})->name('contatti');
